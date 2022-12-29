@@ -1,20 +1,25 @@
-import * as React from "react";
-import { useNavigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import "./Mainpage.css";
-import { blue } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/Box";
-import { maxWidth } from "@mui/system";
+import logo from "./plogo.png";
+import appstore from "./appstore.png";
+import googleplay from "./googleplay.png";
+import doublephone from "./doublephone.png";
+import singlephone from "./singlephone.png";
+import bottomlogo from "./bottomlogo.png";
+import TouchAppIcon from "@mui/icons-material/TouchApp";
+import { Typography } from "@mui/material";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  backgroundColor: "#f0f2f5",
   ...theme.typography.body2,
   padding: theme.spacing(1),
   color: theme.palette.text.secondary,
@@ -22,92 +27,102 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function Home() {
-  const navigate = useNavigate();
   return (
-    <Grid container spacing={2} backgroundColor="#f0f2f5">
-      {/* Sol taraf yazılar parentwiser*/}
-      <Grid xs={7} style={{ backgroundColor: "#f0f2f5" }}>
-        <Item style={{ backgroundColor: "#f0f2f5" }}>
-          <img
-            className="logo"
-            src="https://parentwiser.com.tr/static/media/logo-dark.930ffdd38bb768bdf93d.png"
-            alt="logo"
-          />
+    <Grid
+      container
+      spacing={2}
+      style={{ backgroundColor: "#f0f2f5" }}
+      columns={{ xs: 4, md: 12 }}
+    >
+      <Grid xs={12} md={7}>
+        <Item style={{}}>
+          <img className="logo" src={logo} alt="logo" />
         </Item>
-        <Item style={{ backgroundColor: "#f0f2f5" }}>
-          <h1>“Kişiye Özgü Çocuk Yetiştirme Rehberi”</h1>
+        <Item style={{}}>
+          <Typography
+            variant="h4"
+            style={{
+              fontSize: "44px",
+              fontWeight: "700",
+              lineHeight: "1.21",
+              letterSpacing: ".2px",
+              color: "#183b56",
+              marginBottom: "15px",
+            }}
+          >
+            “Kişiye Özgü Çocuk Yetiştirme Rehberi”
+          </Typography>
         </Item>
         <Item
           style={{
             fontSize: "23px",
-            lineHeight: "1.3",
-            backgroundColor: "#f0f2f5",
+    lineHeight: "1.3",
+    fontWeight: "200",
+    color: "#183b56",
+    marginBottom: "10px",
+    
           }}
         >
-          <p className="information">
+          
             Parentwiser, 2 – 18 yaş arasındaki çocuğunuzu yetiştirirken her an
             yanınızda olan, çocuğunuzla yaşadığınız sorunlara dair güvenilir ve
             bilimsel bilgiyi hızlı bir şekilde sunan mobil bir uygulamadır.
-          </p>
+          
         </Item>
-        <Item style={{ display: "flex", backgroundColor: "#f0f2f5" }}>
-          <Item style={{ display: "flex", backgroundColor: "#f0f2f5" }}>
+        <Item style={{ display: "flex" }}>
+          <Item style={{ display: "flex" }}>
             <img
               onClick={() =>
                 (window.location.href =
                   "https://apps.apple.com/tr/app/parentwiser/id1527425284?l=tr")
               }
-              width="18%"
-              src="https://assets.stickpng.com/images/5847e95fcef1014c0b5e4822.png"
+              src={appstore}
             />
             <img
+              style={{ marginLeft: "15px" }}
               onClick={() =>
                 (window.location.href =
                   "https://play.google.com/store/apps/details?id=com.parentwiser.parentingapp.android&hl=tr&gl=US&pli=1")
               }
-              width="18%"
-              src="https://assets.stickpng.com/images/5a902dbf7f96951c82922875.png"
+              src={googleplay}
             />
           </Item>
         </Item>
-        <Item style={{ backgroundColor: "#f0f2f5" }}>
-          <img src="https://panel.parentwiser.com/static/media/icon-touch.b6826e69.svg" />{" "}
+        <Item>
+          <TouchAppIcon color="secondary" />
           <b>Sayfayı kaydırarak</b> daha fazla bilgi alabilirsin.
         </Item>
       </Grid>
 
-      {/* Sağ taraf telefon*/}
-      <Grid xs={5} style={{ backgroundColor: "#f0f2f5" }}>
+      <Grid xs={12} md={5}>
         <Item
           style={{
             maxWidth: "300px",
             maxHeight: "500px",
             margin: "0 auto",
-            backgroundColor: "#f0f2f5",
           }}
         >
-          {" "}
           <img
             style={{ width: "100%", height: "100%" }}
-            src="https://panel.parentwiser.com/static/media/pw_landing_single_phone.3040dcbc.png"
+            src={singlephone}
             alt="phone"
           />
         </Item>
       </Grid>
 
-      {/* İkinci kısım*/}
-      <Grid xs={2} style={{ backgroundColor: "#f0f2f5" }}></Grid>
       <Grid
-        xs={8}
+        xs={12}
+        md={12}
         style={{
-          padding: "25px 0",
-          maxWidth: "1024px",
-          height: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
         }}
       >
         <Item
           style={{
-            backgroundColor: "#f0f2f5",
             display: "Flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -115,257 +130,325 @@ function Home() {
             marginTop: "50px",
           }}
         >
-          <h1>"Çocuk yetiştirmek, kendini yetiştirmektir."</h1>
-        </Item>
-        <Item
-          style={{
-            backgroundColor: "#f0f2f5",
-            display: "Flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "50px",
-          }}
-        >
-          <p>
-            Özgüvenli, mutlu ve başarılı çocuk yetiştirmek için Parentwiser
-            Ailesinin birer üyesi olabilirsiniz.
-          </p>
-        </Item>
-        <Item
-          style={{
-            backgroundColor: "#f0f2f5",
-            display: "Flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "50px",
-          }}
-        >
-          <ul>
-            <li>
-              Parentwiser’a bir kod ile iki kişi (anne ve baba birlikte) giriş
-              yapabilir.
-            </li>
-            <li>
-              Kod bir yıl boyunca geçerlidir. Tüm içeriklere bu süre içerisinde
-              ulaşabilirsiniz.
-            </li>
-          </ul>
-        </Item>
-        <Grid>
           <Item
             style={{
-              flexBasis: "50%",
-              display: "flex",
-              position: "relative",
-              backgroundColor: "#f0f2f5",
+              fontWeight: "700",
+              maxwidth: "440px",
+              fontSize: "36px",
+              lineHeight: "1.33",
+              letterSpacing: ".2px",
+              textAlign: "center",
+              color: "#183b56",
+              marginBottom: "10px",
             }}
           >
-            <img src="https://panel.parentwiser.com/static/media/pw_landingpage_double_phone.06be856b.png" />
-            <Card
-              sx={{ minWidth: 275 }}
-              style={{
-                flexDirection: "column",
-                display: "flex",
-                maxWidth: "220px",
-                backgroundColor: "#fff",
-                padding: "20px , 10px",
-              }}
-            >
-              <CardContent>
-                <Typography
-                  sx={{ fontSize: 14 }}
-                  color="text.secondary"
-                  gutterBottom
-                  style={{
-                    fontWeight:"700",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  Sınırlı İçerik
-                </Typography>
-                <Typography
-                  variant="h5"
-                  component="div"
-                  style={{
-                    fontSize:"40px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  Ücretsiz
-                </Typography>
-                <Typography
-                  sx={{ mb: 1.5 }}
-                  color="text.secondary"
-                  style={{
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  süresiz
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection : "column",
-                    height : "90px",
-                    fontSize : "12px",
-                    lineHeight:" 1.7",
-                  }}
-                >
-                  Sizin için hazırladığımız ücretsiz içeriklerin keyfini
-                  çıkarın..
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button
-                  onClick={() =>
-                    (window.location.href = "http://localhost:3000/register")
-                  }
-                  size="small"
-                >
-                  KAYIT OL!
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              sx={{ minWidth: 275 }}
-              style={{
-                flexDirection: "column",
-                display: "flex",
-                maxWidth: "220px",
-                backgroundColor: "#fff",
-                padding: "20px , 10px",
-              }}
-            >
-              <CardContent>
-                <Typography
-                  sx={{ fontSize: 14 }}
-                  color="text.secondary"
-                  gutterBottom
-                  style={{
-                    fontWeight:"700",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  Sınırsız İçerik
-                </Typography>
-                <Typography
-                  variant="h5"
-                  component="div"
-                  style={{
-                    fontSize:"40px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  ₺239
-                </Typography>
-                <Typography
-                  sx={{ mb: 1.5 }}
-                  color="text.secondary"
-                  style={{
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  yıllık
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection : "column",
-                    height : "90px",
-                    fontSize : "12px",
-                    lineHeight:" 1.7",
-                  }}
-                >
-                  <ul>
-                    <li>2 kişi kullanabilir</li>
-                    <li>Eğitim Setlerine sınırsız erişim</li>
-                    <li> Anne Baba Okulu</li>
-                    <li>Anketlerle kendinizi tanıyın</li>
-                  </ul>
-                  <br />
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">SATIN AL!</Button>
-              </CardActions>
-            </Card>
+            "Çocuk yetiştirmek, kendini yetiştirmektir."
           </Item>
-        </Grid>
+        </Item>
+        <Item
+          style={{
+            display: "Flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "50px",
+          }}
+        >
+          
+            Özgüvenli, mutlu ve başarılı çocuk yetiştirmek için Parentwiser
+            Ailesinin birer üyesi olabilirsiniz.
+          
+        </Item>
+        <Item
+          style={{
+            display: "Flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "",
+          }}
+        >
+          <List>
+            <ListItem>
+            ▪Parentwiser’a bir kod ile iki kişi (anne ve baba birlikte) giriş
+              yapabilir.
+            </ListItem>
+            <ListItem>
+            ▪Kod bir yıl boyunca geçerlidir. Tüm içeriklere bu süre içerisinde
+              ulaşabilirsiniz.
+            </ListItem>
+          </List>
+        </Item>
       </Grid>
-      <Grid xs={2} style={{ backgroundColor: "#f0f2f5" }}></Grid>
+      <Grid
+        xs={12}
+        md={6}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <Item
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            marginRight:"-200px",
+          }}
+        >
+          <img src={doublephone} />
+        </Item>
+      </Grid>
+      <Grid
+        xs={12}
+        md={3}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop: "15px",
+          marginLeft:"-150px",
+        }}
+      >
+        <Card
+          sx={{ minWidth: 275 }}
+          style={{
+            maxWidth: "220px",
+            backgroundColor: "#fff",
+            padding: "20px , 10px",
+            justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <CardContent>
+            <Typography
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+              style={{
+                fontWeight: "700",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                lineHeight: "1.33",
+                letterSpacing: ".2px",
+                color: "#183b56",
+            
+              }}
+            >
+              Sınırlı İçerik
+            </Typography>
+            <Typography
+              variant="h5"
+              component="div"
+              style={{
+                fontSize: "40px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "rgb(255, 151, 0)",
+                fontWeight:"700",
+              }}
+            >
+              Ücretsiz
+            </Typography>
+            <Typography
+              sx={{ mb: 1.5 }}
+              color="text.secondary"
+              style={{
+                marginBottom: "20px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop:"-10px",
+                boxSizing:"border-box",
+              }}
+            >
+              süresiz
+            </Typography>
+            <Typography
+              variant="body2"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                height: "90px",
+                fontSize: "12px",
+                lineHeight: " 1.7",
+                position:"relative",
+                zoom:"1",
+                boxSizing:"border-box",
+                marginLeft:"0",
+                marginRight:"0",
+                marginBottom:"20px",
+              }}
+            >
+              Sizin için hazırladığımız ücretsiz içeriklerin keyfini çıkarın..
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+            style={{
+              position:"relative",
+              height:"auto",
+              marginLeft:"0",
+                marginRight:"0",
+                zoom:"1",
+                boxSizing:"border-box",
+            }}
+              onClick={() =>
+                (window.location.href = "http://localhost:3000/register")
+              }
+              size="small"
+            >
+              KAYIT OL!
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
+      <Grid
+        xs={12}
+        md={3}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop: "15px",
+          marginLeft:"-150px"
+        }}
+      >
+        <Card
+          sx={{ minWidth: 275 }}
+          style={{
+            maxWidth: "220px",
+            backgroundColor: "#fff",
+            padding: "20px , 10px",
+            justifyContent: "center",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <CardContent>
+            <Typography
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+              style={{
+                fontWeight: "700",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+                lineHeight: "1.33",
+                letterSpacing: ".2px",
+                color: "#183b56",
+              }}
+            >
+              Sınırsız İçerik
+            </Typography>
+            <Typography
+              variant="h5"
+              component="div"
+              style={{
+                fontSize: "40px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "rgb(65, 36, 251)",
+                fontWeight: "700",
+              }}
+            >
+              ₺239
+            </Typography>
+            <Typography
+              sx={{ mb: 1.5 }}
+              color="text.secondary"
+              style={{
+                marginBottom: "20px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop:"-10px",
+                boxSizing:"border-box",
+              }}
+            >
+              yıllık
+            </Typography>
+            <Typography
+              variant="body2"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                height: "90px",
+                fontSize: "12px",
+                lineHeight: " 1.7",
+                marginBottom: "20px",
+                zoom: "1",
+                marginTop:"20px",
+              }}
+            >
+              <List style={{ padding: "" }}>
+                <ListItem>2 kişi kullanabilir</ListItem>
+                <ListItem>Eğitim Setlerine sınırsız erişim</ListItem>
+                <ListItem> Anne Baba Okulu</ListItem>
+                <ListItem>Anketlerle kendinizi tanıyın</ListItem>
+              </List>
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">SATIN AL!</Button>
+          </CardActions>
+        </Card>
+      </Grid>
+      <Grid xs={12}
+        md={12}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop:"20px",
+        }}>
+<img className="bottomlogo" src={bottomlogo} alt="bottomlogo" />
+      </Grid>
+      <Grid xs={12}
+        md={12}>
+        <Typography  style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop:"20px",
+          width:"100%",
+          minHeight:"1px",
+          boxSizing:"border-box",
+          }}>
+        Parentwiser © 2021
+        </Typography>
+      </Grid>
     </Grid>
-
-    //     <body>
-    //       <div className="section1">
-    //         <div className="section1-left">
-    //         <img className="logo" src = "https://parentwiser.com.tr/static/media/logo-dark.930ffdd38bb768bdf93d.png" alt = "logo" />
-    //       <h1 >“Kişiye Özgü Çocuk Yetiştirme Rehberi”</h1>
-    //       <p className="text1">Parentwiser, 2 – 18 yaş arasındaki çocuğunuzu yetiştirirken her an yanınızda olan, çocuğunuzla yaşadığınız sorunlara dair güvenilir ve bilimsel bilgiyi hızlı bir şekilde sunan mobil bir uygulamadır.</p>
-    //    <div style={{display:"flex"}}>
-    //    <img onClick={()=>window.location.href="https://apps.apple.com/tr/app/parentwiser/id1527425284?l=tr"} width="18%"  src="https://assets.stickpng.com/images/5847e95fcef1014c0b5e4822.png"/>
-    //       <img onClick={()=>window.location.href="https://play.google.com/store/apps/details?id=com.parentwiser.parentingapp.android&hl=tr&gl=US&pli=1"} width="18%" src="https://assets.stickpng.com/images/5a902dbf7f96951c82922875.png"/>
-    //    </div>
-    //         </div>
-
-    //         <div className="section1-right">
-    //           <img src="https://panel.parentwiser.com/static/media/pw_landing_single_phone.3040dcbc.png" alt="phone"/>
-    //         </div>
-    //      </div>
-
-    //      <div className="section2">
-    //      <h1>"Çocuk yetiştirmek, kendini yetiştirmektir."</h1>
-
-    //      <p>Özgüvenli, mutlu ve başarılı çocuk yetiştirmek için Parentwiser Ailesinin birer üyesi olabilirsiniz.</p>
-
-    //       <ul>
-    //         <li>Parentwiser’a bir kod ile iki kişi (anne ve baba birlikte) giriş yapabilir.</li>
-    //         <li>Kod bir yıl boyunca geçerlidir. Tüm içeriklere bu süre içerisinde ulaşabilirsiniz.</li>
-    //       </ul>
-    //      </div>
-
-    //     <div className="section3">
-    //       <img src="https://panel.parentwiser.com/static/media/pw_landingpage_double_phone.06be856b.png"/>
-    //         <div className="card">
-    //   <div className="container">
-    //     <h4><b>Sınırlı İçerik</b></h4>
-    //     <p>Ücretsiz</p>
-    //     <p>yıllık</p>
-    //     <p className="subInfo">Sizin için hazırladığımız ücretsiz içeriklerin keyfini çıkarın..</p>
-    //     <button className="buton1" type="button" onclick="alert('Hello world!')">Kayıt Ol!</button>
-    //   </div>
-    // </div>
-    // <div className="card2">
-    //   <div className="container">
-    //     <h4><b>Sınırsız İçerik</b></h4>
-    //     <p>₺239</p>
-    //     <p2>süresiz</p2>
-    //     <button className="buton2" type="button" onclick="alert('Hello world!')">Satın Al!</button>
-    //   </div>
-    // </div>
-    //     </div>
-    //       </body>
   );
 }
 
